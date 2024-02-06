@@ -3,7 +3,9 @@ import {generateHoursList, fetchData} from "./utils";
 
 const buildings = [3,4,5,11,14,22,24,59,63]
 const hoursList = generateHoursList()
+
 fetchData()
+
 const selectData = [
   {
     nameAndId:"select-day",
