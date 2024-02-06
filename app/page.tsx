@@ -1,9 +1,9 @@
 import Table from "./components/Table";
-import generateHoursList from "./generateHoursList";
+import {generateHoursList, fetchData} from "./utils";
 
 const buildings = [3,4,5,11,14,22,24,59,63]
 const hoursList = generateHoursList()
-
+fetchData()
 const selectData = [
   {
     nameAndId:"select-day",
@@ -32,8 +32,8 @@ const selectData = [
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-between p-24">
-      <div className="flex gap-5">
+    <div className="flex flex-col items-center justify-between p-24 mt-5 mb-5">
+      {/* <div className="flex gap-5 mb-10">
       {
         selectData.map(data =>(
           <div className="flex flex-row gap-3">
@@ -48,8 +48,9 @@ export default function Home() {
           </div>
         ))
       }
-      </div>
+      </div> */}
       <Table/>
+      
     </div>
   );
 }
