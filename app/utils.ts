@@ -3,59 +3,38 @@ import puppeteer from 'puppeteer';
 export const fetchData = async() => {
  
   const URL = "https://banner9-registration.kfupm.edu.sa/StudentRegistrationSsb/ssb/term/termSelection?mode=search"
-  const TERM = "202320"
 
-  const browser = await puppeteer.launch();
+  // Launch the browser and open a new blank page
+  const browser = await puppeteer.launch({
+    headless: false,
+  });
   const page = await browser.newPage();
+
+  // Navigate the page to a URL
   await page.goto(URL);
 
   //Selecting the term
-  
-  await page.evaluate(() => {
   const termInput = document.querySelector('#txt_term') as HTMLElement; 
-  termInput.setAttribute('listofsearchterms', TERM); 
-  }); 
+  termInput.setAttribute('listofsearchterms', "202320"); 
+  
   //Waiting
-  await page.waitForSelector('#txt_term');
+  page.waitForSelector('#txt_term');
   //Clicking continue button
-  await page.click('#term-go');
-  //Waiting
-  await page.waitForNavigation();
+  page.click('#term-go');
 
-  //Clicking search button
-  await page.click('#search-go');
-  //Waiting
-  await page.waitForNavigation();
+  // //Clicking search button
+  // await page.click('#search-go');
+  // //Waiting
+  // await page.waitForNavigation();
   
 
   // Get the updated HTML
   const html = await page.content();
   console.log("2 html")
-  console.log(html)
-  // Select a Term
+  console.log(html) 
 
-  // Click a button
-  // await page.click('#button-id');
-
-
-  // await browser.close();
-
-
-
-
-
-  // const { data } = await axios.get(URL);
-
-
-  // axios.get(URL)
-  // .then(res =>{
-  //   const $ = cheerio.load(res);
-  //   console.log(res.data)
-  // }).catch(err =>{
-  //   console.log(err)
-  // })
-  
-  
+  // Close browser.
+  // await browser.close(); 
 }
 
 
