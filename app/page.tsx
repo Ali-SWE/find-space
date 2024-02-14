@@ -1,10 +1,10 @@
 import Table from "./components/Table";
-import {generateHoursList, fetchData} from "./utils";
+import {generateHoursList} from "./utils";
 
 const buildings = [3,4,5,11,14,22,24,59,63]
 const hoursList = generateHoursList()
 
-fetchData()
+// fetchData()
 
 const selectData = [
   {
