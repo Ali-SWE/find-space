@@ -2,21 +2,22 @@ import React from "react";
 
 const links = [
     {
-    accountLink: "https://github.com/Ali-SWE",
-    imgLink: "github.png",
-    alt: "Github"
-    
+        accountLink: "https://twitter.com/A__Alsaihati",
+        imgLink: "twitter.png",
+        alt: "Twitter(X)"
     },
+
     {
-    accountLink: "https://www.linkedin.com/in/ali-alsaihati-7723941ba/",
-    imgLink: "linkedin.png",
-    alt: "LinkedIn"
-    
+        accountLink: "https://www.linkedin.com/in/ali-alsaihati-7723941ba/",
+        imgLink: "linkedin.png",
+        alt: "LinkedIn"
     },
+    
     {
-    accountLink: "https://twitter.com/A__Alsaihati",
-    imgLink: "twitter.png",
-    alt: "Twitter(X)"
+        accountLink: "https://github.com/Ali-SWE",
+        imgLink: "github.png",
+        alt: "Github"
+        
     }
 ]
 

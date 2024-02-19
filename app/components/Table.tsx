@@ -1,7 +1,4 @@
-import { table } from "console";
 import React from "react";
-import Footer from "./Footer";
-
 
 const Table: React.FC = () =>{
     return(

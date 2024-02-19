@@ -1,10 +1,10 @@
 import Table from "./components/Table";
 import {generateHoursList} from "./utils";
+import buildings from "../public/buildings.json"
 
-const buildings = [3,4,5,11,14,22,24,59,63]
 const hoursList = generateHoursList()
 
-// fetchData()
+// console.log(buildings)
 
 const selectData = [
   {
