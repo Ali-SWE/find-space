@@ -1,4 +1,5 @@
 import Table from "./components/Table";
+import Button from "./components/Button";
 import {generateHoursList} from "./utils";
 import buildings from "../public/buildings.json"
 
@@ -51,7 +52,9 @@ export default function Home() {
         ))
       }
       </div>
+      <Button/>
       <Table/>
+
       
     </div>
   );
