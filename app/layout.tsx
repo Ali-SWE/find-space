@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Aclonica } from "next/font/google";
 import { ABeeZee } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
