@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Aclonica } from "next/font/google";
+import { ABeeZee } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const abeezee = ABeeZee({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Find Space",
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={abeezee.className}>
         <Navbar/>
         {children}
         <Footer/>

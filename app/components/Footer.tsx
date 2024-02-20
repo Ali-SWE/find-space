@@ -25,7 +25,7 @@ const Footer : React.FC = () => {
     return (
         <footer className="flex flex-row gap-3 justify-center">
             <p>Built by  
-                <span className="font-bold text-blue-500"> Ali Alsaihati</span>  
+                <span className="font-bold text-my-color "> Ali Alsaihati</span>  
             </p>
             <div className="flex flex-row gap-1">
                 {links.map(link =>(

@@ -1,8 +1,8 @@
 import React from "react";
 
 const Button: React.FC = () => {
-    return  <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-            Find
+    return  <button className=" text-white bg-my-color w-[202px] h-[38px] rounded-lg hover:opacity-60  ">
+            FIND
             </button>
 }
 

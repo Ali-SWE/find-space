@@ -2,6 +2,7 @@ import Table from "./components/Table";
 import Button from "./components/Button";
 import {generateHoursList} from "./utils";
 import buildings from "../public/buildings.json"
+import Overview from "./components/Overview";
 
 const hoursList = generateHoursList()
 
@@ -36,6 +37,7 @@ const selectData = [
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-between p-24 mt-5 mb-5">
+      <Overview/>
       <div className="flex gap-5 mb-10">
       {
         selectData.map(data =>(
