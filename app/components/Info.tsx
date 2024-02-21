@@ -4,7 +4,6 @@ import { generateHoursList } from "../utils";
 import buildingsAndRooms from "../../public/buildings.json";
 
 const buildings = buildingsAndRooms.map((obj) => obj.buildingNumber )
-console.log(buildings)
 
 const hoursList = generateHoursList()
 
@@ -39,7 +38,7 @@ const selectData = [
 const Info: React.FC = () =>{
     return (
         <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
-         border-2 w-[282px] md:w-[500px] border-secondary p-[34px] rounded-[10px]">
+         border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
             {
                 selectData.map(data =>(
