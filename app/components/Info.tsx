@@ -43,7 +43,7 @@ const Info: React.FC = () =>{
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
             {
                 selectData.map(data =>(
-                            <select name={data.nameAndId} id={data.nameAndId} className="border-2 border-primary rounded text-slate-400 text-xs md:text-base">
+                            <select name={data.nameAndId} id={data.nameAndId} className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
                                 <option value="">
                                     {data.text}
                                 </option>
