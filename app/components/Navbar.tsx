@@ -8,13 +8,13 @@ const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className='text-primary'>
-      <nav className="w-full fixed top-0 left-0 right-0 z-10">
+    <header className='text-primary'>
+      <nav className="w-full fixed top-0 left-0 right-0">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              {/* ORGANIZATION NAME */}
                 
+            {/* ORGANIZATION NAME */}
             <h2 className="text-xl font-bold  font-aclonic">Find Space</h2>
               
               {/* HAMBURGER BUTTON FOR SMALL SCREENS */}
@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
                 </li>
 
                 <li className="pb-4 text-lg py-2 md:px-6 text-center hover:text-gray-500">
-                  <Link href="/about"> {/*This link should go to Contact us page section */}
+                  <Link href="/contactus"> {/*This link should go to Contact us page section */}
                     Contact us
                   </Link>
                 </li>
@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </header>
   );
 };
 
