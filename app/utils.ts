@@ -1,15 +1,6 @@
 // import sectinos from "../public/sections.json";
 
-// This function generate list of hours
-export function generateHoursList(): string[] {
-  const hours: string[] = [];
-    for (let i = 7; i < 22; i++) {
-      const formattedHour = i.toString().padStart(2, '0');
-      hours.push(formattedHour + ':00');
-    }
-  return hours;
-}
-
+// This function gets the first letter of the current day
 export function getToday(): string {
   const intDay = new Date().getDay()
   
@@ -30,5 +21,23 @@ export function getToday(): string {
       return "S"
   }
   return ""
+}
+
+// This function gets the current time
+export function getCurrentTime():string {
+  const d = new Date()
+
+  let hours: number | string = d.getHours()
+  let minutes: number | string = d.getMinutes()
+
+  if(hours < 10){
+    hours = "0" + hours.toString()
+  }
+
+  if(minutes < 10){
+    minutes = "0" + minutes.toString()
+  }
+  
+  return hours + ":" + minutes
 }
 

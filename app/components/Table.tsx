@@ -1,6 +1,10 @@
 import React from "react";
 
-const Table = ({myList}:{myList:{building:number, room:string}[]}) => {
+type Props = {
+    building:number, 
+    room:string
+}
+const Table = ({myList}:{myList:Props[]}) => {
     return(
         <div className="box-border grid grid-cols-1 mb-3
         border-2 w-[282px] md:w-[500px] p-[34px] rounded-[10px]">
