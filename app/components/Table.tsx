@@ -1,36 +1,27 @@
 import React from "react";
 
-const Table: React.FC = () =>{
+const Table = ({myList}:{myList:{building:number, room:string}[]}) => {
     return(
-        <table className="text-center border border-slate-500 rounded  ">
-            <thead>
-                <tr className="p-10">
-                    <th>Building</th>
-                    <th>Classroom</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr className="bg-slate-300">
-                    <td>22</td>
-                    <td>120</td>
-                </tr>
-                <tr className="">
-                    <td>24</td>
-                    <td>125</td>
-                </tr> 
-                <tr className="bg-slate-300">
-                    <td>59</td>
-                    <td>1013</td>
-                </tr> 
-                 
-
-            </tbody>
-
-            <tfoot>
-                
-            </tfoot>
-        </table>
+        <div className="box-border grid grid-cols-1 mb-3
+        border-2 w-[282px] md:w-[500px] p-[34px] rounded-[10px]">
+           
+            <table className="table-auto w-full">
+                <thead>
+                    <tr>
+                        <th>Building</th>
+                        <th>Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {myList.map(space => (
+                        <tr>
+                            <td className=" text-center">{space.building}</td>
+                            <td className=" text-center">{space.room}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     )
 }
 

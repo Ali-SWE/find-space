@@ -37,8 +37,6 @@ const selectData = [
 
 const Info: React.FC = () =>{
     return (
-        <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
-         border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
 
               <select name="select-day" id="select-day" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
@@ -67,9 +65,6 @@ const Info: React.FC = () =>{
               </select>
 
             </div>
-            <Button/>
-            
-        </div>
         )
 }
 
