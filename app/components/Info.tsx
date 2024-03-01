@@ -40,20 +40,32 @@ const Info: React.FC = () =>{
         <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
          border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
-            {
-                selectData.map(data =>(
-                            <select name={data.nameAndId} id={data.nameAndId} className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
-                                <option value="">
-                                    {data.text}
-                                </option>
-                                {data.list.map(item =>
-                                    <option key={item} value={item}>{item}</option>
-                                    )}    
-                            </select>
-                       
-                    
-                ))
-            }
+
+              <select name="select-day" id="select-day" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
+                <option value="">Today</option>
+                <option value="">U</option>
+                <option value="">M</option>
+                <option value="">T</option>
+                <option value="">W</option>
+                <option value="">R</option>
+              </select>
+
+              <select name="select-building" id="select-building" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
+                <option value="">Building</option>
+                {buildings.map((building)=> <option value={building}>{building}</option>)}
+              </select>
+
+              <select name="" id="" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
+                <option value="">
+                  
+                </option>
+              </select>
+              <select name="" id="" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
+                <option value="">
+                  
+                </option>
+              </select>
+
             </div>
             <Button/>
             
