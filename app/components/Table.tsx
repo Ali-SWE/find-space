@@ -15,13 +15,14 @@ const Table = ({myList}:{myList:{building:number, room:string}[]}) => {
                 <tbody>
                     {myList.map(space => (
                         <tr>
-                            <td className=" text-center">{space.building}</td>
-                            <td className=" text-center">{space.room}</td>
+                            <td className="text-center">{space.building}</td>
+                            <td className="text-center">{space.room}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
         </div>
+       
     )
 }
 
