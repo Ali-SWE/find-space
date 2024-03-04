@@ -16,27 +16,30 @@ export default function Home() {
 
   const [myList, setList] = useState([{building:"24", rooms: ["120", "130", "131"]},{building:"22", rooms: ["125"]}]); 
   
-  const findHandler = () => { 
+  const findHandler = () => {
+    if(building === "0"){ // no building is chosen
+
+    }else{
       const newList = findAvailableRooms(day, building, startTime, endTime)
       setList(newList)
+    }
   }
   
   const changeDay = (newDay:string) => {
       day = newDay;
-      console.log(day)
+
   }
 
   const changeBuilding = (newBuilding: string) =>{
     building = newBuilding;
-    console.log(building)
+
   }
   const changeStartTime = (newStartTime: string) =>{
     startTime = newStartTime;
-    console.log(startTime)
+
   }
   const changeEndTime = (newEndTime: string) =>{
     endTime = newEndTime;
-    console.log(endTime)
   }
   
   return (

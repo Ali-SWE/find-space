@@ -10,7 +10,7 @@ export function findAvailableRooms(day: string, building: string, startTime: str
   type ObjectKey2 = keyof typeof buildingObject;
 
   const remainingRooms: string[] = getRoomsFromBuilding(building) // initalized to all rooms in the building
-console.log(remainingRooms)
+
   if(building !== "0"){ // one building only
     const roomObject = buildingObject[building as ObjectKey2]
     type ObjectKey3 = keyof typeof roomObject;
@@ -34,15 +34,11 @@ console.log(remainingRooms)
     for(let r of remainingRooms){ // add rooms that doesnt have any classes on this day in this building
       availableRooms.push(r)
     }
-    console.log(availableRooms)
-    console.log(remainingRooms)
+
     if(availableRooms.length !== 0){
       newList.push({building: building, rooms: availableRooms})
     }
     
-
-  }else{ // all buildings
-    newList.push({building: "10", rooms: ["1","2"]})
 
   }
 

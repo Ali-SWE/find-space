@@ -8,6 +8,7 @@ const Overview: React.FC = () =>{
         width={200}
         height={200}
         alt="Find Feature"
+        priority= {true}
         />
         <p className="text-secondary w-30 text-center text-lg">Fill in the information to find an available classroom at <span className="text-primary font-bold">KFUPM.</span></p>
     </div>    

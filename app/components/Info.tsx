@@ -34,11 +34,12 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime}: Props
 
               <select name="select-building" 
               id="select-building" 
-              className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base"
+              className="border-2 border-secondary focus:border-primary rounded text-slate-400
+              text-xs md:text-base "
               onChange={e => changeBuilding(e.target.value)}
              >
                 <option value="">Building</option>
-                {buildings.map((building)=> <option value={building}>{building}</option>)}
+                {buildings.map((building)=> <option key={building} value={building}>{building}</option>)}
               </select>
 
               <input type="time" name="start-time" id="start-time" defaultValue={currentTime}
