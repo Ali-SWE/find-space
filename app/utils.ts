@@ -1,5 +1,5 @@
 import sectinos from "../public/sections.json";
-
+import buildingsAndRooms from "../public/buildings-rooms.json";
 
 //This function find the available rooms
 export function findAvailableRooms(day: string, building: string, startTime: string, endTime: string): {building: string, rooms: string[]}[]{
@@ -9,20 +9,36 @@ export function findAvailableRooms(day: string, building: string, startTime: str
   const buildingObject = sectinos[day as ObjectKey]
   type ObjectKey2 = keyof typeof buildingObject;
 
-
+  const remainingRooms: string[] = getRoomsFromBuilding(building) // initalized to all rooms in the building
+console.log(remainingRooms)
   if(building !== "0"){ // one building only
     const roomObject = buildingObject[building as ObjectKey2]
     type ObjectKey3 = keyof typeof roomObject;
 
     let availableRooms: string[] = []
     for(let room in roomObject){
-      console.log(room)
+
+      for (let index = 0; index < remainingRooms.length; index++) {
+        if(room == remainingRooms[index]){
+          remainingRooms.splice(index,1)
+          break
+        }
+        
+      }
+
       if(isRoomAvailable(roomObject[room as ObjectKey3], startTime, endTime)){
         availableRooms.push(room)
       }
     }
-    
-    newList.push({building: building, rooms: availableRooms})
+
+    for(let r of remainingRooms){ // add rooms that doesnt have any classes on this day in this building
+      availableRooms.push(r)
+    }
+    console.log(availableRooms)
+    console.log(remainingRooms)
+    if(availableRooms.length !== 0){
+      newList.push({building: building, rooms: availableRooms})
+    }
     
 
   }else{ // all buildings
@@ -34,19 +50,72 @@ export function findAvailableRooms(day: string, building: string, startTime: str
 
 }
 
-export function isRoomAvailable(roomTimes: string[][], startTime: string, endTime: string): boolean{
+function isRoomAvailable(roomTimes: string[][], startTime: string, endTime: string): boolean{
   
   for (let intervalArray of roomTimes) {
     const classStart = intervalArray[0]
     const classEnd = intervalArray[1]
-    console.log(classStart + "**" +  classEnd)
-    // if(isThereConflict(startTime, endTime, classStart, classEnd))
+    if(checkTimeConflict(startTime, endTime, classStart, classEnd)){
+      return false
+    }
   }
   
   return true;
 }
 
+function checkTimeConflict(startTime: string, endTime: string, classStart: string, classEnd: string): boolean{
+  
+  const startDateTime = new Date();
+  const classStartDateTime = new Date();
+  const classEndDateTime = new Date();
 
+  // Parse the input time strings into Date objects
+  const [startHour, startMinute] = startTime.split(":").map(Number);
+  startDateTime.setHours(startHour, startMinute, 0, 0);
+
+  const [classStartHour, classStartMinute] = classStart.split(":").map(Number);
+  classStartDateTime.setHours(classStartHour, classStartMinute, 0, 0);
+
+  const [classEndHour, classEndMinute] = classEnd.split(":").map(Number);
+  classEndDateTime.setHours(classEndHour, classEndMinute, 0, 0);
+
+  // Check for time conflict
+  if(endTime === ""){ // if endtime is not provided
+    return startDateTime >= classStartDateTime && startDateTime < classEndDateTime
+  }
+
+  // if end time is provided
+  const endDateTime = new Date();
+  const [endHour, endMinute] = endTime.split(":").map(Number);
+  endDateTime.setHours(endHour, endMinute, 0, 0);
+
+  if (startDateTime >= classStartDateTime && startDateTime < classEndDateTime) {
+    return true;
+  }
+    
+  if (endDateTime > classStartDateTime && endDateTime <= classEndDateTime) {
+    return true;
+  }
+    
+  if (classStartDateTime >= startDateTime && classStartDateTime < endDateTime) {
+    return true;
+  }
+    
+  if (classEndDateTime > startDateTime && classEndDateTime <= endDateTime) {
+    return true;
+  }
+  
+  return false;
+}
+  
+function getRoomsFromBuilding(building: string | number): string[] {
+  for(let obj of buildingsAndRooms){
+    if(obj.buildingNumber == building){
+      return obj.rooms
+    }
+  }
+  return []
+}
 
 
 
