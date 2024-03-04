@@ -8,13 +8,13 @@ import {getToday, getCurrentTime, findAvailableRooms} from "./utils";
 
 
 let day = getToday()
-let building = 0
+let building = "0"
 let startTime = getCurrentTime()
 let endTime = ""
 
 export default function Home() {
 
-  const [myList, setList] = useState([{building:24, rooms: ["120", "130", "131"]},{building:22, rooms: ["125"]}]); 
+  const [myList, setList] = useState([{building:"24", rooms: ["120", "130", "131"]},{building:"22", rooms: ["125"]}]); 
   
   const findHandler = () => { 
       const newList = findAvailableRooms(day, building, startTime, endTime)
@@ -27,7 +27,7 @@ export default function Home() {
   }
 
   const changeBuilding = (newBuilding: string) =>{
-    building = parseInt(newBuilding);
+    building = newBuilding;
     console.log(building)
   }
   const changeStartTime = (newStartTime: string) =>{

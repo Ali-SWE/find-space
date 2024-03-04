@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-    building: number,
+    building: string,
     rooms: string[]
 }
 const Table = ({myList}:{myList:Props[]}) => {

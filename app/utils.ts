@@ -2,22 +2,48 @@ import sectinos from "../public/sections.json";
 
 
 //This function find the available rooms
-export function findAvailableRooms(day: string, building: number, startTime: string, endTime: string): {building: number, rooms: string[]}[]{
-  let newList: {building: number, rooms: string[]}[] = []
+export function findAvailableRooms(day: string, building: string, startTime: string, endTime: string): {building: string, rooms: string[]}[]{
+  let newList: {building: string, rooms: string[]}[] = []
   
-  
-  if(building !== 0){ // one building only
-    newList.push({building:3, rooms: ["10", "20"]})
+  type ObjectKey = keyof typeof sectinos;
+  const buildingObject = sectinos[day as ObjectKey]
+  type ObjectKey2 = keyof typeof buildingObject;
+
+
+  if(building !== "0"){ // one building only
+    const roomObject = buildingObject[building as ObjectKey2]
+    type ObjectKey3 = keyof typeof roomObject;
+
+    let availableRooms: string[] = []
+    for(let room in roomObject){
+      console.log(room)
+      if(isRoomAvailable(roomObject[room as ObjectKey3], startTime, endTime)){
+        availableRooms.push(room)
+      }
+    }
     
+    newList.push({building: building, rooms: availableRooms})
     
 
   }else{ // all buildings
-    newList.push({building: 10, rooms: ["1","2"]})
+    newList.push({building: "10", rooms: ["1","2"]})
 
   }
 
   return newList
 
+}
+
+export function isRoomAvailable(roomTimes: string[][], startTime: string, endTime: string): boolean{
+  
+  for (let intervalArray of roomTimes) {
+    const classStart = intervalArray[0]
+    const classEnd = intervalArray[1]
+    console.log(classStart + "**" +  classEnd)
+    // if(isThereConflict(startTime, endTime, classStart, classEnd))
+  }
+  
+  return true;
 }
 
 
