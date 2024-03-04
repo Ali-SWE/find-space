@@ -1,4 +1,28 @@
-// import sectinos from "../public/sections.json";
+import sectinos from "../public/sections.json";
+
+
+//This function find the available rooms
+export function findAvailableRooms(day: string, building: number, startTime: string, endTime: string): {building: number, rooms: string[]}[]{
+  let newList: {building: number, rooms: string[]}[] = []
+  
+  
+  if(building !== 0){ // one building only
+    newList.push({building:3, rooms: ["10", "20"]})
+    
+    
+
+  }else{ // all buildings
+    newList.push({building: 10, rooms: ["1","2"]})
+
+  }
+
+  return newList
+
+}
+
+
+
+
 
 // This function gets the first letter of the current day
 export function getToday(): string {

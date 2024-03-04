@@ -1,8 +1,8 @@
 import React from "react";
 
 type Props = {
-    building:number, 
-    room:string
+    building: number,
+    rooms: string[]
 }
 const Table = ({myList}:{myList:Props[]}) => {
     return(
@@ -17,11 +17,19 @@ const Table = ({myList}:{myList:Props[]}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {myList.map((space, index) => (
-                        <tr key={index}>
-                            <td className="text-center">{space.building}</td>
-                            <td className="text-center">{space.room}</td>
-                        </tr>
+                    {
+                    
+                    myList.map((space, index1) => (
+                        space.rooms.map((room, index2) =>(
+                            <tr>
+                                <td className="text-center">{space.building}</td>
+                                <td className="text-center">{room}</td>
+                            </tr>
+                        ))
+                        // <tr key={index}>
+                        //     <td className="text-center">{space.building}</td>
+                        //     <td className="text-center">{space.room}</td>
+                        // </tr>
                     ))}
                 </tbody>
             </table>

@@ -14,7 +14,7 @@ let endTime = ""
 
 export default function Home() {
 
-  const [myList, setList] = useState([{building:24, room: "120"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"}]); 
+  const [myList, setList] = useState([{building:24, rooms: ["120", "130", "131"]},{building:22, rooms: ["125"]}]); 
   
   const findHandler = () => { 
       const newList = findAvailableRooms(day, building, startTime, endTime)
