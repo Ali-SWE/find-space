@@ -1,5 +1,5 @@
 import React from "react";
-import buildingsAndRooms from "../../public/buildings.json";
+import buildingsAndRooms from "../../public/buildings-rooms.json";
 import {getToday, getCurrentTime} from "../utils";
 
 const buildings = buildingsAndRooms.map((obj) => obj.buildingNumber );
@@ -41,7 +41,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime}: Props
                 {buildings.map((building)=> <option value={building}>{building}</option>)}
               </select>
 
-              <input type="time" name="start-time" id="start-time" value={currentTime} 
+              <input type="time" name="start-time" id="start-time" defaultValue={currentTime}
               className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" 
               onChange={e => changeStartTime(e.target.value)}/>
 

@@ -4,23 +4,21 @@ import Info from "./components/Info";
 import Table from "./components/Table";
 import Button from "./components/Button";
 import {useState} from "react";
-import {getToday, getCurrentTime} from "./utils";
+import {getToday, getCurrentTime, findAvailableRooms} from "./utils";
 
-const today = getToday();
-const currentTime = getCurrentTime();
+
+let day = getToday()
+let building = 0
+let startTime = getCurrentTime()
+let endTime = ""
 
 export default function Home() {
 
   const [myList, setList] = useState([{building:24, room: "120"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"}]); 
   
-  let day = today;
-  let building = 0;
-  let startTime = getCurrentTime()
-  let endTime = ""
-  
-
-  function findHandler(){
-    setList([{building: 59, room:"1013"}])
+  const findHandler = () => { 
+      const newList = findAvailableRooms(day, building, startTime, endTime)
+      setList(newList)
   }
   
   const changeDay = (newDay:string) => {
@@ -46,7 +44,6 @@ export default function Home() {
       <Overview/>
       <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
       border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
-        <p>{today}</p>
           <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} />
           <Button findHandler= {findHandler} />
       </div>

@@ -17,8 +17,8 @@ const Table = ({myList}:{myList:Props[]}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {myList.map(space => (
-                        <tr>
+                    {myList.map((space, index) => (
+                        <tr key={index}>
                             <td className="text-center">{space.building}</td>
                             <td className="text-center">{space.room}</td>
                         </tr>
