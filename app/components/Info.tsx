@@ -1,17 +1,28 @@
 import React from "react";
 import buildingsAndRooms from "../../public/buildings.json";
-import {getToday, getCurrentTime} from "../utils"
+import {getToday, getCurrentTime} from "../utils";
 
-const buildings = buildingsAndRooms.map((obj) => obj.buildingNumber )
-const today = getToday()
-const currentTime = getCurrentTime()
+const buildings = buildingsAndRooms.map((obj) => obj.buildingNumber );
+const today = getToday();
+const currentTime = getCurrentTime();
 
-const Info: React.FC = () => {
+
+type Props = {
+  changeDay: (newDay:string) => void,
+  changeBuilding: (newBuilding:string) => void,
+  changeStartTime: (newStartTime: string) => void,
+  changeEndTime: (newSEndTime: string) => void,
+}
+
+const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime}: Props) => {
     return (
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
 
-            <h2>{currentTime}</h2>
-              <select name="select-day" id="select-day" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
+              <select name="select-day"
+               id="select-day" 
+               className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base"
+               onChange={e => changeDay(e.target.value)}
+               >
                 <option value={today}>Today</option>
                 <option value="U">U</option>
                 <option value="M">M</option>
@@ -20,25 +31,23 @@ const Info: React.FC = () => {
                 <option value="R">R</option>
               </select>
 
-              <select name="select-building" id="select-building" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
+
+              <select name="select-building" 
+              id="select-building" 
+              className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base"
+              onChange={e => changeBuilding(e.target.value)}
+             >
                 <option value="">Building</option>
                 {buildings.map((building)=> <option value={building}>{building}</option>)}
               </select>
 
-              <input type="time" name="start-time" id="start-time" value={currentTime} className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" />
+              <input type="time" name="start-time" id="start-time" value={currentTime} 
+              className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" 
+              onChange={e => changeStartTime(e.target.value)}/>
 
-              <input type="time" name="end-time" id="end-time" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" />
-
-              {/* <select name="" id="" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
-                <option value="">
-                  
-                </option>
-              </select>
-              <select name="" id="" className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base">
-                <option value="">
-                  
-                </option>
-              </select> */}
+              <input type="time" name="end-time" id="end-time" 
+              className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" 
+              onChange={e => changeEndTime(e.target.value)}/>
 
             </div>
         )

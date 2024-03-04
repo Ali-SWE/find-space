@@ -3,15 +3,42 @@ import Overview from "./components/Overview";
 import Info from "./components/Info";
 import Table from "./components/Table";
 import Button from "./components/Button";
-import { useState } from "react";
+import {useState} from "react";
+import {getToday, getCurrentTime} from "./utils";
 
+const today = getToday();
+const currentTime = getCurrentTime();
 
 export default function Home() {
 
   const [myList, setList] = useState([{building:24, room: "120"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"},{building:22, room: "125"}]); 
   
+  let day = today;
+  let building = 0;
+  let startTime = getCurrentTime()
+  let endTime = ""
+  
+
   function findHandler(){
     setList([{building: 59, room:"1013"}])
+  }
+  
+  const changeDay = (newDay:string) => {
+      day = newDay;
+      console.log(day)
+  }
+
+  const changeBuilding = (newBuilding: string) =>{
+    building = parseInt(newBuilding);
+    console.log(building)
+  }
+  const changeStartTime = (newStartTime: string) =>{
+    startTime = newStartTime;
+    console.log(startTime)
+  }
+  const changeEndTime = (newEndTime: string) =>{
+    endTime = newEndTime;
+    console.log(endTime)
   }
   
   return (
@@ -19,7 +46,8 @@ export default function Home() {
       <Overview/>
       <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
       border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
-          <Info/>
+        <p>{today}</p>
+          <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} />
           <Button findHandler= {findHandler} />
       </div>
       <Table myList={myList} />

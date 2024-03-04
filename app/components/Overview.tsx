@@ -9,7 +9,7 @@ const Overview: React.FC = () =>{
         height={200}
         alt="Find Feature"
         />
-        <p className="text-secondary w-30 text-center text-lg">Fill in the information to find an available classroom you can work in.</p>
+        <p className="text-secondary w-30 text-center text-lg">Fill in the information to find an available classroom at <span className="text-primary font-bold">KFUPM.</span></p>
     </div>    
     )
 }
