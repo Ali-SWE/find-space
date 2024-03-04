@@ -12,16 +12,17 @@ type Props = {
   changeBuilding: (newBuilding:string) => void,
   changeStartTime: (newStartTime: string) => void,
   changeEndTime: (newSEndTime: string) => void,
-  missingBuilding: boolean
+  missingBuilding: boolean,
+  timeError: boolean
 }
 
-const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missingBuilding}: Props) => {
+const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missingBuilding, timeError}: Props) => {
     return (
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
 
               <select name="select-day"
                id="select-day" 
-               className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base"
+               className="border-2 h-8 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base"
                onChange={e => changeDay(e.target.value)}
                >
                 <option value={today}>Today</option>
@@ -35,7 +36,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
 
               <select name="select-building" 
               id="select-building" 
-              className={`border-2 h-7 border-secondary focus:border-primary rounded text-slate-400
+              className={`border-2 h-8 border-secondary focus:border-primary rounded text-slate-400
               text-xs md:text-base ${missingBuilding? "border-red-500": ""}`}
               onChange={e => changeBuilding(e.target.value)}
              >
@@ -44,11 +45,13 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
               </select>
 
               <input type="time" name="start-time" id="start-time" defaultValue={currentTime}
-              className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" 
+              className={`border-2 h-8 border-secondary focus:border-primary rounded
+            text-slate-400 text-xs md:text-base ${timeError?"border-red-500" :""}`} 
               onChange={e => changeStartTime(e.target.value)}/>
 
               <input type="time" name="end-time" id="end-time" 
-              className="border-2 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base" 
+              className={`border-2 h-8 border-secondary focus:border-primary rounded
+              text-slate-400 text-xs md:text-base ${timeError?"border-red-500" :""}`}  
               onChange={e => changeEndTime(e.target.value)}/>
 
             </div>

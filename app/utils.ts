@@ -103,6 +103,26 @@ function checkTimeConflict(startTime: string, endTime: string, classStart: strin
   
   return false;
 }
+
+export function isTimeError(startTime: string, endTime: string): boolean{
+  if(startTime === ""){
+    return true
+  }else if(endTime === ""){
+    return false
+  }
+  else{
+    const startDateTime = new Date();
+    const [startHour, startMinute] = startTime.split(":").map(Number);
+    startDateTime.setHours(startHour, startMinute, 0, 0);
+
+    const endDateTime = new Date();
+    const [endHour, endMinute] = endTime.split(":").map(Number);
+    endDateTime.setHours(endHour, endMinute, 0, 0);
+
+    return endDateTime > startDateTime
+
+  }
+}
   
 function getRoomsFromBuilding(building: string | number): string[] {
   for(let obj of buildingsAndRooms){

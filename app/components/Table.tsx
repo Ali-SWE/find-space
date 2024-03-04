@@ -9,8 +9,9 @@ const Table = ({myList}:{myList:Props[]}) => {
         <div className="box-border grid grid-cols-1 mb-3
         border-2 w-[282px] md:w-[500px] p-[34px] rounded-[10px]">
            {myList.length === 0
-           ? <p className="text-center text-red-600 font-bold">Sorry, There is no space. Try to change the information you specified.</p>
+           ? <p className="text-center text-yellow-600 font-bold">Sorry, There is no space. Try to change the information you specified.</p>
            :
+           
             <table className="table-auto w-full">
                 <thead>
                     <tr>
@@ -18,9 +19,9 @@ const Table = ({myList}:{myList:Props[]}) => {
                         <th>Room</th>
                     </tr>
                 </thead>
-                <tbody>
+                
+                    <tbody>
                     {
-                        
                         myList.map((space, index1) => (
                             space.rooms.map((room, index2) =>(
                                 <tr key={`${index1}-${index2}`}>
@@ -29,8 +30,10 @@ const Table = ({myList}:{myList:Props[]}) => {
                             </tr>
                         ))
                         ))}
-                </tbody>
+                    </tbody>
+                
             </table>
+           
             }
         </div>
        

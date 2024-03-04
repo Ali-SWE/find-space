@@ -4,7 +4,7 @@ import Info from "./components/Info";
 import Table from "./components/Table";
 import Button from "./components/Button";
 import {useState} from "react";
-import {getToday, getCurrentTime, findAvailableRooms} from "./utils";
+import {getToday, getCurrentTime, findAvailableRooms, isTimeError} from "./utils";
 
 
 let day = getToday()
@@ -14,33 +14,52 @@ let endTime = ""
 
 export default function Home() {
 
-  const [myList, setList] = useState([{building:"24", rooms: ["120", "130", "131"]},{building:"22", rooms: ["125"]}]); 
+  const [myList, setList] = useState([{building:"24", rooms: ["120", "131"]},{building:"22", rooms: ["125", "130"]}]); 
   const [missingBuilding, setMissingBuilding] = useState(false)
+  const [timeErorr, setTimeErorr] = useState(false)
+  
   const findHandler = () => {
     if(building === "0"){ // no building is chosen
       setMissingBuilding(true)
-    }else{
-      const newList = findAvailableRooms(day, building, startTime, endTime)
-      if(missingBuilding){
-        setMissingBuilding(false)
-      }
+    }
+    else{
+      setMissingBuilding(false)
+    }
+    let inputTimeError = isTimeError(startTime, endTime)
+    if(inputTimeError){ // end time is more than start time or start time is empty
+      console.log("hi")
+      setTimeErorr(true)
+      console.log("dikjsfjkd")
+
+    }
+    else{
+      setTimeErorr(false)
+    }
+    if( building !== "0" && !inputTimeError){
+      const newList = findAvailableRooms(day, building, startTime, endTime)  
       setList(newList)
     }
+    
   }
   
   const changeDay = (newDay:string) => {
       day = newDay;
-
   }
 
   const changeBuilding = (newBuilding: string) =>{
-    building = newBuilding;
-
+    if(newBuilding === ""){
+      building = "0"
+    }
+    else{
+      building = newBuilding;
+    }
   }
+
   const changeStartTime = (newStartTime: string) =>{
     startTime = newStartTime;
 
   }
+  
   const changeEndTime = (newEndTime: string) =>{
     endTime = newEndTime;
   }
@@ -50,7 +69,7 @@ export default function Home() {
       <Overview/>
       <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
       border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
-          <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} missingBuilding = {missingBuilding} />
+          <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} missingBuilding = {missingBuilding} timeError = {timeErorr} />
           <Button findHandler= {findHandler} />
       </div>
       <Table myList={myList} />
