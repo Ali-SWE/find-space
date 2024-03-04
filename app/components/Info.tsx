@@ -12,9 +12,10 @@ type Props = {
   changeBuilding: (newBuilding:string) => void,
   changeStartTime: (newStartTime: string) => void,
   changeEndTime: (newSEndTime: string) => void,
+  missingBuilding: boolean
 }
 
-const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime}: Props) => {
+const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missingBuilding}: Props) => {
     return (
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
 
@@ -34,8 +35,8 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime}: Props
 
               <select name="select-building" 
               id="select-building" 
-              className="border-2 border-secondary focus:border-primary rounded text-slate-400
-              text-xs md:text-base "
+              className={`border-2 h-7 border-secondary focus:border-primary rounded text-slate-400
+              text-xs md:text-base ${missingBuilding? "border-red-500": ""}`}
               onChange={e => changeBuilding(e.target.value)}
              >
                 <option value="">Building</option>

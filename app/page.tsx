@@ -15,12 +15,15 @@ let endTime = ""
 export default function Home() {
 
   const [myList, setList] = useState([{building:"24", rooms: ["120", "130", "131"]},{building:"22", rooms: ["125"]}]); 
-  
+  const [missingBuilding, setMissingBuilding] = useState(false)
   const findHandler = () => {
     if(building === "0"){ // no building is chosen
-
+      setMissingBuilding(true)
     }else{
       const newList = findAvailableRooms(day, building, startTime, endTime)
+      if(missingBuilding){
+        setMissingBuilding(false)
+      }
       setList(newList)
     }
   }
@@ -47,7 +50,7 @@ export default function Home() {
       <Overview/>
       <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
       border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
-          <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} />
+          <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} missingBuilding = {missingBuilding} />
           <Button findHandler= {findHandler} />
       </div>
       <Table myList={myList} />
