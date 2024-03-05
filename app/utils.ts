@@ -5,17 +5,28 @@ import buildingsAndRooms from "../public/buildings-rooms.json";
 export function findAvailableRooms(day: string, building: string, startTime: string, endTime: string): {building: string, rooms: string[]}[]{
   let newList: {building: string, rooms: string[]}[] = []
   
+  const remainingRooms: string[] = getRoomsFromBuilding(building) // initalized to all rooms in the building
+
   type ObjectKey = keyof typeof sectinos;
   const buildingObject = sectinos[day as ObjectKey]
   type ObjectKey2 = keyof typeof buildingObject;
 
-  const remainingRooms: string[] = getRoomsFromBuilding(building) // initalized to all rooms in the building
 
   if(building !== "0"){ // one building only
+    let availableRooms: string[] = []
+
+    if(day === "F" || day === "S"){ // weekend
+      for(let r of remainingRooms){ 
+        availableRooms.push(r)
+      }
+      newList.push({building: building, rooms: availableRooms})
+      return newList
+    }
+    
+    
     const roomObject = buildingObject[building as ObjectKey2]
     type ObjectKey3 = keyof typeof roomObject;
 
-    let availableRooms: string[] = []
     for(let room in roomObject){
 
       for (let index = 0; index < remainingRooms.length; index++) {
@@ -119,7 +130,7 @@ export function isTimeError(startTime: string, endTime: string): boolean{
     const [endHour, endMinute] = endTime.split(":").map(Number);
     endDateTime.setHours(endHour, endMinute, 0, 0);
 
-    return endDateTime > startDateTime
+    return endDateTime < startDateTime
 
   }
 }

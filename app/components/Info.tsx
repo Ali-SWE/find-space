@@ -17,7 +17,7 @@ type Props = {
 }
 
 const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missingBuilding, timeError}: Props) => {
-    console.log("miss" + missingBuilding)
+  
     return (
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
 

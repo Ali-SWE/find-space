@@ -11,7 +11,7 @@ const Table = ({ myList }: { myList: Props[] | null }) => {
     <div className="box-border grid grid-cols-1 mb-3 border-2 w-[282px] md:w-[500px] p-[34px] rounded-[10px]">
       {myList === null ? (
         <p className="text-center text-yellow-600 font-bold">
-          This is the first render.
+          {/* This is the first render. */}
         </p>
       ) : (
         myList?.length === 0 ? (

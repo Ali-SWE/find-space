@@ -23,9 +23,7 @@ export default function Home() {
   const [timeErorr, setTimeErorr] = useState(false)
   
   const findHandler = () => {
-    console.log(building)
     if(building === "0"){ // no building is chosen
-      console.log("hi")
       setMissingBuilding(true)
     }
     else{
