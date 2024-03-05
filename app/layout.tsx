@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={abeezee.className}>
+      <body className={`${abeezee.className} bg-white`}>
         <Navbar/>
         {children}
         <Footer/>
