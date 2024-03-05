@@ -69,7 +69,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-between px-24 mt-5 mb-5">
       <Overview/>
       <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
-      border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
+      border-2 w-[80vw] md:w-[500px] border-primary p-[34px] rounded-[10px]">
           <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} missingBuilding = {missingBuilding} timeError = {timeErorr} />
           <Button findHandler= {findHandler} />
       </div>
