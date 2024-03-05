@@ -1,11 +1,7 @@
-"use client"
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React from 'react';
 
 
 const Navbar: React.FC = () => {
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className='text-primary'>
