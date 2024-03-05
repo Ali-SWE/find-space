@@ -14,10 +14,6 @@ let endTime = ""
 
 export default function Home() {
 
-
-
-
-
   type myListType ={
     building: string,
     rooms: string[]
