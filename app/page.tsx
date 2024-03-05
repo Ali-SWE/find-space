@@ -5,7 +5,6 @@ import Table from "./components/Table";
 import Button from "./components/Button";
 import {useState, useEffect, Component} from "react";
 import {getToday, getCurrentTime, findAvailableRooms, isTimeError} from "./utils";
-import bayanplus from "bayanplus-js";
 
 
 let day = getToday()
@@ -16,14 +15,6 @@ let endTime = ""
 export default function Home() {
 
 
-// /pages/_app.js
-
-useEffect(() => {
-  bayanplus.init({
-    projectId: "ySOyWqtV",
-    isDev: false, //  if you data set to `true` so your data won't be tracked in case you are in development mode
-  });
-}, []);
 
 
 
