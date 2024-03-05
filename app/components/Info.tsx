@@ -23,7 +23,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
 
               <select name="select-day"
                id="select-day" 
-               className="border-2 h-8 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base"
+               className="border-2 h-8 border-secondary focus:border-primary rounded text-slate-400 text-xs md:text-base bg-transparent"
                onChange={e => changeDay(e.target.value)}
                >
                 <option value={today}>Today</option>
@@ -37,7 +37,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
 
               <select name="select-building" 
               id="select-building" 
-              className={`border-2 h-8 focus:border-primary rounded text-slate-400
+              className={`border-2 h-8 focus:border-primary rounded text-slate-400 bg-transparent
               text-xs md:text-base ${missingBuilding? "border-my-red": "border-secondary"}`}
               onChange={e => changeBuilding(e.target.value)}
              >
@@ -46,12 +46,12 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
               </select>
 
               <input type="time" name="start-time" id="start-time" defaultValue={currentTime}
-              className={`border-2 h-8 focus:border-primary rounded
+              className={`border-2 h-8 focus:border-primary rounded bg-transparent
             text-slate-400 text-xs md:text-base ${timeError? " border-my-red" :"border-secondary"}`} 
               onChange={e => changeStartTime(e.target.value)}/>
 
               <input type="time" name="end-time" id="end-time" 
-              className={`border-2 h-8 focus:border-primary rounded
+              className={`border-2 h-8 focus:border-primary rounded bg-transparent
               text-slate-400 text-xs md:text-base ${timeError?"border-my-red" :"border-secondary"}`}  
               onChange={e => changeEndTime(e.target.value)}/>
 
