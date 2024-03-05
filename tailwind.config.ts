@@ -15,7 +15,8 @@ const config: Config = {
       },
       colors: {
         "primary": '#0C7E40',
-        "secondary": "#9994A4"
+        "secondary": "#9994A4",
+        "my-red": "#ef4444"
       },
       fontFamily: {
         aclonic: ["Aclonica"]

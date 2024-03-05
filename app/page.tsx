@@ -14,12 +14,18 @@ let endTime = ""
 
 export default function Home() {
 
-  const [myList, setList] = useState([{building:"24", rooms: ["120", "131"]},{building:"22", rooms: ["125", "130"]}]); 
+  type myListType ={
+    building: string,
+    rooms: string[]
+  }
+  const [myList, setList] = useState<myListType[] | null>(null); 
   const [missingBuilding, setMissingBuilding] = useState(false)
   const [timeErorr, setTimeErorr] = useState(false)
   
   const findHandler = () => {
+    console.log(building)
     if(building === "0"){ // no building is chosen
+      console.log("hi")
       setMissingBuilding(true)
     }
     else{
@@ -27,10 +33,7 @@ export default function Home() {
     }
     let inputTimeError = isTimeError(startTime, endTime)
     if(inputTimeError){ // end time is more than start time or start time is empty
-      console.log("hi")
       setTimeErorr(true)
-      console.log("dikjsfjkd")
-
     }
     else{
       setTimeErorr(false)

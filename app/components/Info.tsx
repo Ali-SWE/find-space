@@ -17,6 +17,7 @@ type Props = {
 }
 
 const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missingBuilding, timeError}: Props) => {
+    console.log("miss" + missingBuilding)
     return (
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
 
@@ -37,7 +38,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
               <select name="select-building" 
               id="select-building" 
               className={`border-2 h-8 border-secondary focus:border-primary rounded text-slate-400
-              text-xs md:text-base ${missingBuilding? "border-red-500": ""}`}
+              text-xs md:text-base ${missingBuilding? "border-my-red": ""}`}
               onChange={e => changeBuilding(e.target.value)}
              >
                 <option value="">Building</option>
@@ -46,12 +47,12 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
 
               <input type="time" name="start-time" id="start-time" defaultValue={currentTime}
               className={`border-2 h-8 border-secondary focus:border-primary rounded
-            text-slate-400 text-xs md:text-base ${timeError?"border-red-500" :""}`} 
+            text-slate-400 text-xs md:text-base ${timeError? " border-my-red" :""}`} 
               onChange={e => changeStartTime(e.target.value)}/>
 
               <input type="time" name="end-time" id="end-time" 
               className={`border-2 h-8 border-secondary focus:border-primary rounded
-              text-slate-400 text-xs md:text-base ${timeError?"border-red-500" :""}`}  
+              text-slate-400 text-xs md:text-base ${timeError?"border-my-red" :""}`}  
               onChange={e => changeEndTime(e.target.value)}/>
 
             </div>

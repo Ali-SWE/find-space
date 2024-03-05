@@ -9,7 +9,7 @@ const Navbar: React.FC = () => {
 
   return (
     <header className='text-primary'>
-      <nav className="w-full fixed top-0 left-0 right-0 z-10">
+      <nav className="w-full cona top-0 left-0 right-0 z-10">
         <div className="px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
