@@ -23,7 +23,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
 
               <select name="select-day"
                id="select-day" 
-               className="border-2 h-8 border-secondary focus:border-primary rounded text-slate-400 text-sm md:text-base bg-transparent"
+               className="border-2 h-8 border-secondary focus:border-primary rounded text-slate-400 text-sm md:text-base text-center bg-transparent"
                onChange={e => changeDay(e.target.value)}
                >
                 <option value={today}>Today</option>
@@ -38,7 +38,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
               <select name="select-building" 
               id="select-building" 
               className={`border-2 h-8 focus:border-primary rounded  text-slate-400 bg-transparent
-              text-sm md:text-base ${missingBuilding? "border-my-red": "border-secondary"}`}
+              text-sm md:text-base text-center ${missingBuilding? "border-my-red": "border-secondary"}`}
               onChange={e => changeBuilding(e.target.value)}
              >
                 <option value="">Building</option>
