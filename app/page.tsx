@@ -70,7 +70,6 @@ export default function Home() {
       <Overview/>
       <div className="box-border grid grid-cols-1 gap-y-8 justify-items-center mb-3
       border-2 w-[282px] md:w-[500px] border-primary p-[34px] rounded-[10px]">
-        hi
           <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} missingBuilding = {missingBuilding} timeError = {timeErorr} />
           <Button findHandler= {findHandler} />
       </div>
