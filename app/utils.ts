@@ -187,3 +187,20 @@ export function getCurrentTime():string {
   return hours + ":" + minutes
 }
 
+export function getCurrentTimeAndAddHour():string {
+  const d = new Date()
+
+  let hours: number | string = d.getHours() +1
+  let minutes: number | string = d.getMinutes()
+
+  if(hours < 10){
+    hours = "0" + hours.toString()
+  }
+
+  if(minutes < 10){
+    minutes = "0" + minutes.toString()
+  }
+  
+  return hours + ":" + minutes
+}
+

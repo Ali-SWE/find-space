@@ -4,13 +4,13 @@ import Info from "./components/Info";
 import Table from "./components/Table";
 import Button from "./components/Button";
 import {useState} from "react";
-import {getToday, getCurrentTime, findAvailableRooms, isTimeError} from "./utils";
+import {getToday, getCurrentTime, getCurrentTimeAndAddHour, findAvailableRooms, isTimeError} from "./utils";
 
 
 let day = getToday()
 let building = "0"
 let startTime = getCurrentTime()
-let endTime = ""
+let endTime = getCurrentTimeAndAddHour()
 
 export default function Home() {
 
