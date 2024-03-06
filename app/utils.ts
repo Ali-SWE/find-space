@@ -187,7 +187,7 @@ export function getCurrentTime():string {
   return hours + ":" + minutes
 }
 
-export function getCurrentTimeAndAddHour():string {
+export function getCurrentTimePlusOneHour():string {
   const d = new Date()
 
   let hours: number | string = d.getHours() +1

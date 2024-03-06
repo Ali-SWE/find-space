@@ -1,10 +1,11 @@
 import React from "react";
 import buildingsAndRooms from "../../public/buildings-rooms.json";
-import {getToday, getCurrentTime} from "../utils";
+import {getToday, getCurrentTime, getCurrentTimePlusOneHour} from "../utils";
 
 const buildings = buildingsAndRooms.map((obj) => obj.buildingNumber );
 const today = getToday();
 const currentTime = getCurrentTime();
+const currentTimePlusOneHour = getCurrentTimePlusOneHour()
 
 
 type Props = {
@@ -50,7 +51,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
             text-slate-400 text-sm md:text-base ${timeError? " border-my-red" :"border-secondary"}`} 
               onChange={e => changeStartTime(e.target.value)}/>
 
-              <input type="time" name="end-time" id="end-time" 
+              <input type="time" name="end-time" id="end-time"  defaultValue={currentTimePlusOneHour}
               className={`border-2 h-8 focus:border-primary rounded bg-transparent
               text-slate-400 text-sm md:text-base ${timeError?"border-my-red" :"border-secondary"}`}  
               onChange={e => changeEndTime(e.target.value)}/>
