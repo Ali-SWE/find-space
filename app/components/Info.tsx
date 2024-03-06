@@ -21,7 +21,7 @@ const Info = ({changeDay, changeBuilding, changeStartTime, changeEndTime, missin
   
     return (
             <div className="grid grid-cols-2 gap-y-10 gap-x-[30px] md:gap-x-[55px]">
-
+              <p className="col-span-2 text-center text-secondary">Select a day, a building, and a time interval.</p>
               <select name="select-day"
                id="select-day" 
                className=" w-[90%] max-w-700 min-w-20 border-2 h-8  focus:border-primary rounded border-secondary text-black text-sm md:text-base text-center  bg-transparent"
