@@ -5,20 +5,42 @@ type Props = {
   rooms: string[]
 }
 
-const Table = ({ myList }: { myList: Props[] | null }) => {
 
+const Table = ({ myList, chosenDay }: { myList: Props[] | null, chosenDay: string }) => {
+  console.log("day" + chosenDay)
+
+// This is the first render
+ if(myList === null){
   return (
     <div className="box-border grid grid-cols-1 mb-3 border-2 w-[80vw] md:w-[500px] p-[34px] rounded-[10px]">
-      {myList === null ? (
-        <p className="text-center text-yellow-600 font-bold">
-          {/* This is the first render. */}
-        </p>
-      ) : (
-        myList?.length === 0 ? (
+      <p className="text-center text-yellow-600 font-bold">
+        {/* This is the first render. */}
+      </p>
+    </div>
+  );
+ }
+
+// weekend
+ else if (chosenDay === "F" || chosenDay === "S") {
+    return (
+      <div className="box-border grid grid-cols-1 mb-3 border-2 w-[80vw] md:w-[500px] p-[34px] rounded-[10px]">
+        <p className="text-center text-yellow-600 font-bold">Hey! It's a weekend.</p>
+      </div>
+    );
+  }
+  
+  else if(myList?.length === 0){
+    return (
+      <div className="box-border grid grid-cols-1 mb-3 border-2 w-[80vw] md:w-[500px] p-[34px] rounded-[10px]">
           <p className="text-center text-yellow-600 font-bold">
             Sorry, There is no space. Try to change the information you specified.
           </p>
-        ) : (
+      </div>
+    );
+  }
+  
+  return (
+    <div className="box-border grid grid-cols-1 mb-3 border-2 w-[80vw] md:w-[500px] p-[34px] rounded-[10px]">
           <table className="table-auto w-full">
             <thead>
               <tr>
@@ -45,8 +67,6 @@ const Table = ({ myList }: { myList: Props[] | null }) => {
                   ))} */}
             </tbody>
           </table>
-        )
-      )}
     </div>
   );
 }

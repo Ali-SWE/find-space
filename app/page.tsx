@@ -73,7 +73,7 @@ export default function Home() {
           <Info changeDay = {changeDay} changeBuilding = {changeBuilding} changeStartTime = {changeStartTime} changeEndTime = {changeEndTime} missingBuilding = {missingBuilding} timeError = {timeErorr} />
           <Button findHandler= {findHandler} />
       </div>
-      <Table myList={myList} />
+      <Table myList={myList} chosenDay ={day} />
     </div>
   );
 }
