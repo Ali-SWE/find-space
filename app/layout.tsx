@@ -3,6 +3,7 @@ import { ABeeZee } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Analytics } from '@vercel/analytics/react';
 
 const abeezee = ABeeZee({ subsets: ["latin"], weight: "400" });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${abeezee.className} bg-white`}>
         <Navbar/>
         {children}
+        <Analytics />
         <Footer/>
         </body>
     </html>
