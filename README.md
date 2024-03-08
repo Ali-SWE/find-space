@@ -1,4 +1,4 @@
-#Find Space 
+# Find Space 
 https://find-space-kfupm.vercel.app
 - Web application allows users to find available classrooms at kfupm.
 - Used technologies: Next.js, Typescript, & Tailwind CSS.
