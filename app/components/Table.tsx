@@ -7,7 +7,6 @@ type Props = {
 
 
 const Table = ({ myList, chosenDay }: { myList: Props[] | null, chosenDay: string }) => {
-  console.log("day" + chosenDay)
 
 // This is the first render
  if(myList === null){
@@ -38,7 +37,7 @@ const Table = ({ myList, chosenDay }: { myList: Props[] | null, chosenDay: strin
       </div>
     );
   }
-  
+
   return (
     <div className="box-border grid grid-cols-1 mb-3 border-2 w-[80vw] md:w-[500px] p-[34px] rounded-[10px]">
           <table className="table-auto w-full">
