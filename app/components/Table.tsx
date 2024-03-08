@@ -23,7 +23,7 @@ const Table = ({ myList, chosenDay }: { myList: Props[] | null, chosenDay: strin
  else if (chosenDay === "F" || chosenDay === "S") {
     return (
       <div className="box-border grid grid-cols-1 mb-3 border-2 w-[80vw] md:w-[500px] p-[34px] rounded-[10px]">
-        <p className="text-center text-yellow-600 font-bold">Hey! It's a weekend.</p>
+        <p className="text-center text-yellow-600 font-bold">Hey! It&apos;s a weekend.</p>
       </div>
     );
   }
